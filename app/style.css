@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.game-container {
+    display: inline-block;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.button:disabled {
+    background-color: #ccc;
+}
+
+.spin-result {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.slot {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background-color: #eee;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.balance {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@keyframes spin {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(360deg); }
+    100% { transform: rotateX(0); }
+}

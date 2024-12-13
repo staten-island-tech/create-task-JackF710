@@ -4,47 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slot Machine Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f3f3f3;
-        }
-        .slot-machine {
-            margin: 20px auto;
-            padding: 20px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background-color: #fff;
-            max-width: 300px;
-        }
-        .symbols {
-            display: flex;
-            justify-content: center;
-            font-size: 2rem;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            margin: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <h1>Slot Machine Game</h1>
-    <div class="slot-machine">
-        <div class="symbols" id="symbols">
-            &#x1F3B2; &#x1F3B2; &#x1F3B2; <!-- Placeholder symbols -->
-        </div>
+
+    <div class="game-container">
+        <h1>Slot Machine Game</h1>
+
+        <div class="balance" id="balance">Your current balance is: $100</div>
+
         <div>
-            <p id="balance">Balance: $100</p>
+            <input type="number" id="betAmount" placeholder="Enter your bet amount" min="1" step="1" />
+            <button class="button" id="spinButton">Spin</button>
         </div>
-        <input type="number" id="betAmount" placeholder="Enter bet amount">
-        <br>
-        <button onclick="playGame()">Spin</button>
+
+        <div class="spin-result" id="spinResult">
+            <div class="slot" id="slot1"></div>
+            <div class="slot" id="slot2"></div>
+            <div class="slot" id="slot3"></div>
+        </div>
+
+        <div class="balance" id="finalBalance"></div>
     </div>
+
+    <script src="script.js"></script> 
 </body>
 </html>
