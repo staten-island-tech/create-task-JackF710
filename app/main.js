@@ -1,11 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Symbols for the slot machine (image URLs)
-  const symbols = [
-    "https://www.svgrepo.com/download/210424/slot-machine-citrus.svg", // Citrus
-    "https://cdn3.iconfinder.com/data/icons/casino/256/Cherries-512.png", // Cherries
-    "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/lemon-512.png", // Lemon
-    "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/grapes-512.png", // Same image for variety (you can replace this with another image)
-  ];
+  const symbols = ["🍒", "🍋", "🍉", "🍊", "🍍"];
 
   let balance = 100; // Starting balance
 
