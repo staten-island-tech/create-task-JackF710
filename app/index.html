@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slot Machine Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slot Machine Game 🎰✨</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="game-container">
-        <h1>Slot Machine Game</h1>
+  <h1>🎰 Welcome to the Slot Machine Game! 🍀</h1>
+  
+  <div id="balance">Your current balance is: $100 💰</div>
+  
+  <input type="number" id="betAmount" placeholder="Enter your bet 💸" min="1" step="1" />
+  
+  <div id="slotMachine">
+    <div class="slot">🍒</div>
+    <div class="slot">🍋</div>
+    <div class="slot">🍉</div>
+  </div>
+  
+  <button id="spinButton">Spin 🔄</button>
 
-        <div class="balance" id="balance">Your current balance is: $100</div>
+  <script src="script.js"></script>
 
-        <div>
-            <input type="number" id="betAmount" placeholder="Enter your bet amount" min="1" step="1" />
-            <button class="button" id="spinButton">Spin</button>
-        </div>
-
-        <div class="spin-result" id="spinResult">
-            <div class="slot" id="slot1">
-                <img src="https://www.svgrepo.com/download/210424/slot-machine-citrus.svg" alt="Citrus">
-            </div>
-            <div class="slot" id="slot2">
-                <img src="https://cdn3.iconfinder.com/data/icons/casino/256/Cherries-512.png" alt="Cherries">
-            </div>
-            <div class="slot" id="slot3">
-                <img src="https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/lemon-512.png" alt="Lemon">
-            </div>
-        </div>
-
-        <div class="balance" id="finalBalance"></div>
-    </div>
-
-    <script src="script.js"></script> <!-- Make sure to link the JS file properly -->
 </body>
 </html>
