@@ -3,26 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slot Machine Game 🎰✨</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Slot Machine</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <h1>🎰 Welcome to the Slot Machine Game! 🍀</h1>
-  
-  <div id="balance">Your current balance is: $100 💰</div>
-  
-  <input type="number" id="betAmount" placeholder="Enter your bet 💸" min="1" step="1" />
-  
-  <div id="slotMachine">
-    <div class="slot">🍒</div>
-    <div class="slot">🍋</div>
-    <div class="slot">🍉</div>
+  <div class="container">
+    <h1>Slot Machine</h1>
+    <div class="slot-machine">
+      <div class="slot" id="slot1">🍒</div>
+      <div class="slot" id="slot2">🍒</div>
+      <div class="slot" id="slot3">🍒</div>
+    </div>
+    <input type="number" id="wager" placeholder="Enter your wager" min="1">
+    <button id="spin-button">Spin</button>
+    <p id="result-message"></p>
+    <p id="balance-message">Balance: $1000</p>
   </div>
-  
-  <button id="spinButton">Spin 🔄</button>
-
-  <script src="script.js"></script>
-
+  <script src="main.js"></script>
 </body>
 </html>

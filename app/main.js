@@ -1,108 +1,65 @@
-// Symbols for the slot machine 🍒🍋🍉🍇🍊🍍🍓🍑🍏🍊
-const symbols = ["🍒", "🍋", "🍉", "🍇", "🍊", "🍍", "🍓", "🍑", "🍏", "🍊"];
+const symbols = ["🍒", "🍋", "🍇", "🍊", "🍍"];
+let balance = 1000;
 
-// Starting balance 💸
-let balance = 100;
+document.getElementById("spin-button").addEventListener("click", () => {
+  const wagerInput = document.getElementById("wager");
+  const resultMessage = document.getElementById("result-message");
+  const balanceMessage = document.getElementById("balance-message");
 
-// Function to randomly select 3 symbols 🎰
-function spinMachine() {
-  const spinResult = [];
-  for (let i = 0; i < 3; i++) {
-    const randomIndex = Math.floor(Math.random() * symbols.length);
-    spinResult.push(symbols[randomIndex]);
-  }
-  return spinResult;
-}
+  let wager = parseInt(wagerInput.value);
 
-// Function to calculate winnings 🏆
-function calculateWinnings(spinResult, betAmount) {
-  if (spinResult[0] === spinResult[1] && spinResult[1] === spinResult[2]) {
-    return betAmount * 10; // 10x winnings if all symbols match 🎉
-  }
-  return 0; // No winnings if symbols do not match 💔
-}
-
-// Update the balance on the screen 💵
-function updateBalance() {
-  document.getElementById(
-    "balance"
-  ).textContent = `Your current balance is: $${balance} 💰`;
-}
-
-// Animate the spin effect 🔄
-function animateSpin() {
-  const slots = document.querySelectorAll(".slot");
-  let count = 0;
-
-  const interval = setInterval(() => {
-    for (let i = 0; i < 3; i++) {
-      const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-      slots[i].textContent = randomSymbol; // Use textContent to update the symbol 🍒🍋🍉
-    }
-    count++;
-
-    // After 30 updates, stop the animation ⏳
-    if (count === 30) {
-      clearInterval(interval);
-    }
-  }, 100); // Update every 100ms ⏱️
-
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(), 2000); // Wait 2 seconds before showing the final result ⏳
-  });
-}
-
-// Handle the spin button click event 🖱️
-async function handleSpin() {
-  const betAmount = Number(document.getElementById("betAmount").value); // Convert to number 🔢
-
-  // Validate bet amount 🚫
-  if (isNaN(betAmount) || betAmount <= 0 || betAmount > balance) {
-    alert("Invalid bet amount. Please try again. 💸");
+  if (isNaN(wager) || wager <= 0) {
+    resultMessage.textContent = "Please enter a valid wager!";
     return;
   }
 
-  // Deduct the bet amount from the balance before spinning 💳
-  balance -= betAmount;
-  updateBalance();
-
-  // Start the spin animation 🎰
-  await animateSpin();
-
-  // Get the final spin result after the animation 🎉
-  const spinResult = spinMachine();
-  displaySpinResult(spinResult);
-
-  // Calculate winnings 🏆
-  const winnings = calculateWinnings(spinResult, betAmount);
-  if (winnings > 0) {
-    alert(`🎉 Congratulations! You won $${winnings} 🏆`);
-    balance += winnings;
-  } else {
-    alert("😢 No match. Better luck next time! 🍀");
+  if (wager > balance) {
+    resultMessage.textContent = "You don't have enough balance!";
+    return;
   }
 
-  // Update balance after the spin 💰
-  updateBalance();
+  // Start spin animation
+  resultMessage.textContent = "Spinning...";
+  const slot1 = document.getElementById("slot1");
+  const slot2 = document.getElementById("slot2");
+  const slot3 = document.getElementById("slot3");
 
-  // Check if balance is zero or below and disable the game if so ⛔
-  if (balance <= 0) {
-    alert("💔 You ran out of money. Game over! ⛔");
-    document.getElementById("spinButton").disabled = true;
-    document.getElementById("betAmount").disabled = true;
-  }
-}
+  let animationInterval = setInterval(() => {
+    slot1.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    slot2.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    slot3.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  }, 100);
 
-// Function to display the spin result on the screen 🎰
-function displaySpinResult(spinResult) {
-  const slots = document.querySelectorAll(".slot");
-  for (let i = 0; i < 3; i++) {
-    slots[i].textContent = spinResult[i]; // Set final symbol after animation 🍍
-  }
-}
+  setTimeout(() => {
+    clearInterval(animationInterval);
 
-// Add event listener to the spin button 🖱️
-document.getElementById("spinButton").addEventListener("click", handleSpin);
+    // Final spin results
+    const finalSymbols = [
+      symbols[Math.floor(Math.random() * symbols.length)],
+      symbols[Math.floor(Math.random() * symbols.length)],
+      symbols[Math.floor(Math.random() * symbols.length)],
+    ];
 
-// Initialize the game with the current balance 💵
-updateBalance();
+    slot1.textContent = finalSymbols[0];
+    slot2.textContent = finalSymbols[1];
+    slot3.textContent = finalSymbols[2];
+
+    // Calculate result
+    if (finalSymbols[0] === finalSymbols[1] && finalSymbols[1] === finalSymbols[2]) {
+      balance += wager * 10;
+      resultMessage.textContent = "Jackpot! You win $" + wager * 10 + "!";
+    } else if (finalSymbols[0] === finalSymbols[1] || finalSymbols[1] === finalSymbols[2] || finalSymbols[0] === finalSymbols[2]) {
+      resultMessage.textContent = "You get your wager back: $" + wager;
+    } else {
+      balance -= wager;
+      resultMessage.textContent = "You lose! Better luck next time.";
+    }
+
+    balanceMessage.textContent = "Balance: $" + balance;
+
+    if (balance <= 0) {
+      resultMessage.textContent = "Game Over! You're out of money.";
+      document.getElementById("spin-button").disabled = true;
+    }
+  }, 3000);
+});
