@@ -18,7 +18,6 @@ document.getElementById("spin-button").addEventListener("click", () => {
     return;
   }
 
-  // Start spin animation
   resultMessage.textContent = "Spinning...";
   const slot1 = document.getElementById("slot1");
   const slot2 = document.getElementById("slot2");
@@ -33,7 +32,6 @@ document.getElementById("spin-button").addEventListener("click", () => {
   setTimeout(() => {
     clearInterval(animationInterval);
 
-    // Final spin results
     const finalSymbols = [
       symbols[Math.floor(Math.random() * symbols.length)],
       symbols[Math.floor(Math.random() * symbols.length)],
@@ -44,7 +42,6 @@ document.getElementById("spin-button").addEventListener("click", () => {
     slot2.textContent = finalSymbols[1];
     slot3.textContent = finalSymbols[2];
 
-    // Calculate result
     if (finalSymbols[0] === finalSymbols[1] && finalSymbols[1] === finalSymbols[2]) {
       balance += wager * 10;
       resultMessage.textContent = "Jackpot! You win $" + wager * 10 + "!";
