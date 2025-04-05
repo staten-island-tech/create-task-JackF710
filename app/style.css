@@ -1,70 +1,30 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f3f3f3;
-  margin: 0;
-  padding: 20px;
-}
-
-.container {
-  max-width: 400px;
-  margin: auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  color: #333;
-}
-
-.slot-machine {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+  margin-top: 50px;
 }
 
 .slot {
-  font-size: 50px;
-  margin: 0 10px;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  background: #f9f9f9;
-}
-
-input[type="number"] {
+  font-size: 60px;
   padding: 10px;
-  margin: 10px 0;
-  width: 100%;
-  font-size: 16px;
+  display: inline-block;
+  width: 80px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+  transition: all 0.3s ease;
 }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
+#controls {
+  margin: 20px;
 }
 
 #result-message {
-  font-size: 18px;
-  margin: 10px 0;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 #balance-message {
   font-size: 18px;
-  font-weight: bold;
+  margin-top: 10px;
 }

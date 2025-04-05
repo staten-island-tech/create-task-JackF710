@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slot Machine</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Slot Machine</h1>
-    <div class="slot-machine">
-      <div class="slot" id="slot1">🍒</div>
-      <div class="slot" id="slot2">🍒</div>
-      <div class="slot" id="slot3">🍒</div>
-    </div>
-    <input type="number" id="wager" placeholder="Enter your wager" min="1">
-    <button id="spin-button">Spin</button>
-    <p id="result-message"></p>
-    <p id="balance-message">Balance: $1000</p>
+
+  <h1>🎰 Slot Machine</h1>
+
+  <div>
+    <span id="slot1" class="slot">❓</span>
+    <span id="slot2" class="slot">❓</span>
+    <span id="slot3" class="slot">❓</span>
   </div>
+
+  <div id="controls">
+    <label for="wager">Wager: $</label>
+    <input type="number" id="wager" min="1" value="100" />
+    <button id="spin-button">Spin</button>
+  </div>
+
+  <div id="result-message"></div>
+  <div id="balance-message">Balance: $1000</div>
+
   <script src="main.js"></script>
 </body>
 </html>
